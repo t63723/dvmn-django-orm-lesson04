@@ -19,7 +19,7 @@ class Pokemon(models.Model):
     previous_evolution = models.ForeignKey(
         "self",
         on_delete=models.SET_NULL,
-        related_name="pokemon_previous_evolution",
+        related_name="pokemon_next_evolution",
         verbose_name="Предыдущая эволюция",
         blank=True,
         null=True
