@@ -1,7 +1,5 @@
 import folium
-import json
 
-from django.http import HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404
 
 from .models import Pokemon, PokemonEntity
@@ -75,7 +73,7 @@ def show_pokemon(request, pokemon_id):
         "title_jp": pokemon.title_jp,
         "description": pokemon.description,
         "image": {
-            "url": pokemon.image.url
+            "url": pokemon.image.url if pokemon.image else None
         },
         "previous_evolution": None,
         "next_evolution": None
